@@ -1,0 +1,279 @@
+
+/* Refined Sidebar Styles */
+.sidebar {
+    width: 250px; /* Sidebar width */
+    position: fixed; /* Sidebar position fixed to the viewport */
+    top: 50px; /* Distance from the top of the viewport */
+    left: -250px; /* Initially positioned off-screen to the left */
+    height: 100%; /* Full viewport height */
+    padding-top: 20px; /* Padding at the top inside the sidebar */
+    background-color: #111; /* Sidebar background color */
+    color: white; /* Text color */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    transition: left 0.5s; /* Smooth transition for toggling visibility */
+    z-index: 1; /* Ensure sidebar is above other content but below modals/popups */
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 15px;
+    background: #e0e0e0;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+/* Light Mode Styles */
+.light-mode .sidebar {
+    background-color: #f0f0f0; /* Light background for light mode */
+}
+
+.light-mode .sidebar::-webkit-scrollbar {
+    width: 15px;
+    background: #e0e0e0;
+}
+
+.light-mode .sidebar::-webkit-scrollbar-thumb {
+    background: #a0a0a0;
+    border-radius: 5px;
+}
+
+.light-mode .sidebar::-webkit-scrollbar-thumb:hover {
+    background: #808080;
+}
+
+.light-mode .sidebar {
+    scrollbar-width: auto;
+    scrollbar-color: #a0a0a0 #e0e0e0;
+}
+
+/* Dark Mode Styles */
+.dark-mode .sidebar {
+    background-color: #1a1a1a; /* Dark background for dark mode */
+}
+
+.dark-mode .sidebar::-webkit-scrollbar {
+    width: 15px;
+    background: #2c2c2c;
+}
+
+.dark-mode .sidebar::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 5px;
+}
+
+.dark-mode .sidebar::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+.dark-mode .sidebar {
+    scrollbar-width: auto;
+    scrollbar-color: #555 #2c2c2c;
+}
+
+
+   .sidebar a {
+       padding: 8px 8px 8px 16px;
+       text-decoration: none;
+       font-size: 14px;
+       color: white;
+       display: block;
+       font-size: 15px
+
+   }
+   .sidebar a:focus {
+    outline: 2px solid dimgrey; /* Customize as needed */
+}
+
+   /* Light mode styles */
+   body.light-mode .sidebar,
+   body.light-mode .sidebar * {
+       color: black; /* Text color in light mode */;
+       background-color: whitesmoke; /* Background color in light mode */;
+
+   }
+
+   /* Search Input Styles */
+.sidebar input[type="text"] {
+    width: 80%;
+    padding: 2px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+
+}
+
+.sidebar input[type="text"]:focus {
+    border-color: dodgerblue;
+}
+
+
+
+
+   .sidebar a:hover {
+       color: grey;
+   }
+
+
+
+
+
+   .sidebar h3 {
+       color: #f1f1f1;
+
+   }
+ .menu-toggle {
+    cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+    position: fixed; /* Keeps the element in the same place even when scrolling */
+    left: 14px; /* Distance from the left edge of the viewport */
+
+    z-index: 1; /* Ensures the element stays on top of other content */
+    font-size: 25px; /* Size of the text or icon inside */
+    color: grey; /* Color of the text or icon */;
+
+    padding-right:5px;
+        padding-left:5px;
+          top: 80px;
+    transition: color 0.3s ease; box-shadow 0.3s ease;
+  
+}}
+
+   /* Style for .menu-toggle when active */
+   .menu-toggle.active {
+       color: blue; /* Change color when active */;
+       background-color: transparent
+
+   }
+
+
+
+
+   /* Main Content Section */
+   main {
+       margin-left: 0;
+
+       padding: 16px; /* Adjust padding to your needs */
+   }
+
+
+
+
+
+   @media screen and (max-width: 585px) {
+       .sidebar {
+
+       }
+
+       main {
+           padding-top: 60px;
+       }
+
+           .menu-toggle {
+             top: 74px;
+           }
+   }
+
+      @media screen and (max-width: 1060px) {
+          .sidebar {
+
+          }
+
+          main {
+              padding-top: 60px;
+          }
+
+          .fa.fa-gamepad {
+            font-size: 20px;
+          }
+          .menu-toggle {
+            left:15px
+          }
+
+      }
+
+
+        .content.small {
+            margin-left: 0; /* Less margin when sidebar is collapsed */
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+
+        .content {
+            margin-left: 0;
+            transition: margin-left 0.5s;
+
+        }
+
+        .sidebar-visible .sidebar {
+            left: 0;
+        }
+
+        .sidebar-visible .content {
+            margin-left: 240px;
+        }
+
+        /* Sidebar (House Body) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden initially */
+  width: 250px;
+  height: 100%;
+  background: #795548; /* Dark brown */
+  transition: left 0.5s;
+  z-index: 1; /* Ensure it's on top */
+  /* Other styling as needed */
+}
+
+/* House Roof */
+.sidebar .roof {
+  width: 0;
+  height: 0;
+  border-left: 125px solid transparent;
+  border-right: 125px solid transparent;
+  border-bottom: 70px solid #6D4C41; /* Slightly lighter brown */
+  margin: 0 auto; /* Center the roof */
+}
+
+/* House Door */
+.sidebar .body .door {
+  width: 60px;
+  height: 90px;
+  background: #3E2723; /* Darker brown */
+  position: relative;
+  top: 100px; /* Adjust as necessary */
+  left: 95px; /* Centering the door */
+}
+
+/* House Window */
+.sidebar .body .window {
+  width: 40px;
+  height: 40px;
+  background: #CFD8DC; /* Light blue */
+  position: relative;
+  top: 60px; /* Adjust as necessary */
+  left: 20px; /* Adjust based on design */
+  /* Add more styling for window panes if needed */
+}
+
+/* Menu Toggle Adjustments */
+.menu-toggle {
+  /* Your existing styling */
+  top: 20px; /* Adjust position */
+}
+
+.sidebar-visible .sidebar {
+  left: 0;
+}
