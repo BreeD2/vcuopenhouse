@@ -631,9 +631,11 @@ p {
 .house-layout {
   position: relative;
   width: 600px; /* Adjust based on your layout size */
-  height: 400px; /* Adjust based on your layout size */
+  height: 1000px; /* Adjust based on your layout size */
   margin: 0 auto; /* Center the layout */
-  background: url('layout.pdf') no-repeat center/cover; /* Optional: A background image of the floor plan */
+  background: url('layout.jpg') no-repeat center/cover; /* Optional: A background image of the floor plan */;
+
+
 }
 
 .room-navigation2 a {
@@ -643,8 +645,8 @@ p {
 }
 
 /* Position each room link according to the house layout */
-#entry .room-navigation2 a { top: 20%; left: 10%; }
-#office .room-navigation2 a { top: 20%; right: 10%; }
+#entry .room-navigation2 a { top: 0px; left: 0px }
+#office .room-navigation2 a { top: 500px; right: 500px; }
 #livingroom .room-navigation2 a { bottom: 20%; left: 10%; }
 #bedroom .room-navigation2 a { bottom: 20%; right: 10%; }
 #diningroom .room-navigation2 a { top: 50%; left: 50%; transform: translate(-50%, -50%); }
@@ -669,4 +671,98 @@ p {
   width: 100%;
   height: auto;
   border-radius: 4px;
+}
+
+#main-content > nav > ul > li:nth-child(1) > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20vh;
+    left: 31.5vw;
+
+    background-color: yellow;
+    width: 44vw;
+    height: 11vh;
+    text-align: center;
+}
+
+#main-content > nav > ul > li:nth-child(8) > a {
+  background-color: red
+}
+
+#main-content > nav > ul > li:nth-child(8) > a {
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 109.5vh;
+    left: 33.6vw;
+    background-color: blue;
+    width: 17vw;
+    height: 13vh;
+    text-align: center;
+}
+
+#main-content > nav > ul > li:nth-child(6) > a {
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 109.5vh;
+    left: 52.5vw;
+    background-color: green;
+    width: 20vw;
+    height: 13vh;
+    text-align: center;
+}
+
+#main-content > nav > ul > li:nth-child(2) > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 47vh;
+    left: 33vw;
+    background-color: red;
+    width: 16vw;
+    height: 30vh;
+    text-align: center;
+}
+
+
+element.style {
+}
+#main-content > nav > ul > li:nth-child(4) > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 81vh;
+    left: 33vw;
+    background-color: yellow;
+    width: 18vw;
+    height: 25vh;
+    text-align: center;
+}
+
+#main-content > nav > ul > li:nth-child(3) > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 57.2vh;
+    left: 54.7vw;
+    background-color: pink;
+    width: 18vw;
+    height: 25.6vh;
+    text-align: center;
+}
+
+#main-content > nav > ul > li:nth-child(5) > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 85vh;
+    left: 53.8vw;
+    background-color: orange;
+    width: 18vw;
+    height: 21.6vh;
+    text-align: center;
 }
