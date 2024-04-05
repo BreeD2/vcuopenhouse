@@ -715,19 +715,17 @@ p {
     height: 13vh;
     text-align: center;
 }
-
 #main-content > nav > ul > li:nth-child(2) > a {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 47vh;
-    left: 33vw;
+    top: 47.6vh;
+    left: 35.9vw;
     background-color: red;
-    width: 16vw;
-    height: 30vh;
+    width: 13.3vw;
+    height: 20vw;
     text-align: center;
 }
-
 
 element.style {
 }
