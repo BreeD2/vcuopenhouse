@@ -1,0 +1,264 @@
+
+#light-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 80px;
+  background-color: #DDD;
+  border: 2px solid #666;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#switchLever {
+  width: 20px;
+  height: 40px;
+  background-color: white;
+  border: 2px double black;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.lightOn #switchLever {
+  transform: translateY(10px);
+}
+
+body.lightOn {
+  background-color:dimgrey;
+  color: white;
+}
+
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+  background-color: white;
+  color: black;
+}
+
+body {
+           transition: background-color 0.5s ease, color 0.5s ease;
+           background-color: white;
+           color: black;
+       }
+
+       /* Optional: CSS for specific cursor states if needed */
+.cursor1 {
+ cursor: url('cursor1.cur'), auto;
+}
+
+.cursor2 {
+ cursor: url('cursor2.cur'), auto;
+}
+
+
+#lightSwitch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 80px;
+  background-color: #DDD;
+  border: 2px solid #666;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#switchLever {
+  width: 20px;
+  height: 40px;
+  background-color: white;
+  border: 2px double black;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.lightOn #switchLever {
+  transform: translateY(10px);
+}
+
+body.lightOn {
+  background-color: dimgrey;
+  color: white;
+}
+
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+  background-color: white;
+  color: black;
+}
+
+/* Spotlight CSS for specific images */
+.highlighted-image {
+  transition: filter 0.3s ease; /* Smooth transition for the filter */
+}
+
+/* When the spotlight is not active, you might want to dim other content */
+body:not(.spotlight-active) .highlighted-image {
+  filter: brightness(50%); /* Dim images to mimic darkness */
+}
+
+/* Active spotlight effect on images */
+body.spotlight-active .highlighted-image {
+  filter: brightness(100%); /* Full brightness under the spotlight */
+}
+
+/* Base styles for light mode */
+body {
+  background-color: white;
+  color: black;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Styles for dark mode */
+body.dark-mode {
+  background-color: #333;
+  color: white;
+}
+
+/* Styles for highlighted images */
+.highlighted-image {
+  transition: filter 0.3s ease; /* Smooth transition for the filter */
+}
+
+/* Dark mode image styles */
+body.dark-mode .highlighted-image {
+  filter: brightness(50%);
+}
+
+
+
+/* Only show the spotlight in dark mode */
+body.dark-mode .spotlight {
+  display: block;
+}
+/* Base styling for the house */
+#house {
+
+  transition: background-color 0.5s ease, color 0.5s ease;
+
+}
+
+
+
+/* Spotlight effect */
+body.dark-mode .spotlight {
+  display: block;
+
+
+  background: rgba(255, 255, 255, 0.85); /* Lighter circle in the middle */
+  pointer-events: none; /* Allows clicking through the spotlight */
+  mix-blend-mode: screen; /* Blend mode to create the spotlight effect */
+}
+
+/* Initial state of the spotlight, hidden */
+.spotlight {
+  display: none;
+}
+
+.spotlight {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(244, 242, 132, 1) 0%, rgba(255,255,255,0) 70%);
+        pointer-events: none;
+        mix-blend-mode: screen;
+
+        animation-duration: 3s;
+        z-index: 2
+    }
+
+
+.wiggle {
+    animation: wiggle 0.5s ease infinite;
+}
+
+/* Ensure spotlight only displays in dark mode */
+body:not(.dark-mode) .spotlight {
+  display: none;
+}
+
+/* Styles for images to highlight them when in dark mode and under the spotlight */
+.dark-mode .highlighted-image:hover {
+  filter: brightness(100%);
+  animation: wiggle 0.5s ease infinite;
+}
+
+body.spring { background-color: lightgreen; }
+body.summer { background-color: lightyellow; }
+body.autumn { background-color: orange; }
+body.winter { background-color: lightblue; }
+
+.hidden { display: none; }
+
+#rainEffect {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url('..//images/rain.gif');
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.container {
+    position: relative;
+    z-index: 1000;
+}
+
+.room {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+}
+#room1 {
+    background-color: #f8f8f8;
+}
+
+#bedroom {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f4f4f9;
+    position: relative;
+}
+#bed {
+    width: 200px;
+    height: 100px;
+    background-color: #a29bfe;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+#desk {
+    width: 150px;
+    height: 70px;
+    background-color: #fdcb6e;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+#window {
+    width: 120px;
+    height: 100px;
+    background-color: #74b9ff;
+    border: 2px solid #dfe6e9;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+
+@keyframes dayCycle {
+    0% { background-color: #74b9ff; } /* Morning */
+    50% { background-color: #0984e3; } /* Noon */
+    100% { background-color: #2c3e50; } /* Night */
+}
+#window {
+    animation: dayCycle 60s infinite;
+}

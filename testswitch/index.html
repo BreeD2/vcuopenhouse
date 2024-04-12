@@ -1,0 +1,210 @@
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotlight</title>
+
+
+    <link rel="icon" type="image/x-icon" href="..//favicon/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="favicon/image/png" sizes="32x32" href="..//favicon-32x32.png">
+  <link rel="icon" type="favicon/image/png" sizes="16x16" href="..//favicon-16x16.png">
+
+
+  <link rel="mask-icon" href="..//favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+    <center>
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <button id="lightSwitch"><div id="switchLever"></div></button>
+ <div class="spotlight" id="spotlight"></div>
+ <div id="house">Spotlight
+   <div class="image-container">
+     <img src="ocean.jpeg" alt="Description for image 1" class="highlighted-image"style="width:200px">
+
+     <!-- Add more images as needed -->
+ </div>
+ </div>
+
+ <audio id="switchOnSound" src="light.wav"></audio>
+ <audio id="switchOffSound" src="light.wav"></audio>
+
+ <div class="container">
+   <div id="room1" class="room">
+    <h2>Welcome to Room 1</h2>
+    <p>Description of what you can do in Room 1.</p>
+</div>
+<div id="bedroom">
+    <div id="bed">Bed</div>
+    <div id="desk">
+        <button onclick="showDeskItems()">Show Desk Items</button>
+        <div id="desk-items" style="display:none;">
+            <p>Laptop</p>
+            <p>Notebook</p>
+            <p>Pen Holder</p>
+        </div>
+    </div>
+    <div id="window">Window</div>
+</div>
+
+
+        <h1>Welcome to Our Seasonal Website</h1>
+        <p>Experience the beauty of seasons and weather.</p>
+        <button id="toggleRain">Toggle Rain</button>
+    </div>
+    <div id="rainEffect" class="hidden"></div>
+
+ <script>
+     document.addEventListener('DOMContentLoaded', function() {
+         const spotlight = document.getElementById('spotlight');
+         const lightSwitch = document.getElementById('lightSwitch');
+         const switchOnSound = document.getElementById('switchOnSound');
+         const switchOffSound = document.getElementById('switchOffSound');
+
+         lightSwitch.addEventListener('click', function() {
+             document.body.classList.toggle('lightOn');
+             const isLightOn = document.body.classList.contains('lightOn');
+             spotlight.style.display = isLightOn ? 'block' : 'none';
+             if(isLightOn) {
+                 switchOnSound.play();
+             } else {
+                 switchOffSound.play();
+             }
+         });
+
+         document.addEventListener('mousemove', function(e) {
+             spotlight.style.left = `${e.pageX - 50}px`;
+             spotlight.style.top = `${e.pageY - 50}px`;
+         });
+     });
+ </script>
+ <script>
+   document.addEventListener('DOMContentLoaded', function() {
+       const spotlight = document.getElementById('spotlight');
+       const images = document.querySelectorAll('.highlighted-image');
+
+       // Toggle spotlight on light switch click
+       document.getElementById('lightSwitch').addEventListener('click', function() {
+           document.body.classList.toggle('dark-mode');
+           const isDarkMode = document.body.classList.contains('dark-mode');
+           spotlight.style.display = isDarkMode ? 'none' : 'none'; // Initially hidden in dark mode
+       });
+
+       images.forEach(image => {
+           image.addEventListener('mouseenter', function() {
+               if (document.body.classList.contains('dark-mode')) {
+                   spotlight.style.display = 'block';
+               }
+           });
+
+           image.addEventListener('mouseleave', function() {
+               spotlight.style.display = 'none';
+           });
+
+           image.addEventListener('mousemove', function(e) {
+               const rect = this.getBoundingClientRect();
+               const xPos = e.clientX - rect.left; // X position within the element.
+               const yPos = e.clientY - rect.top;  // Y position within the element.
+
+               spotlight.style.left = `${rect.left + xPos - 50}px`; // Adjust spotlight center to cursor
+               spotlight.style.top = `${rect.top + yPos - 50}px`;
+           });
+       });
+   });
+
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+   const spotlight = document.getElementById('spotlight');
+
+   // Function to update spotlight position
+   function moveSpotlight(e) {
+       spotlight.style.display = 'block';
+       spotlight.style.left = e.pageX - spotlight.offsetWidth / 2 + 'px';
+       spotlight.style.top = e.pageY - spotlight.offsetHeight / 2 + 'px';
+   }
+
+   // Show the spotlight effect on mouse move
+   document.addEventListener('mousemove', moveSpotlight);
+
+   // Brighten images under the spotlight and add wiggle effect
+   document.addEventListener('mousemove', function(e) {
+       let isSpotlightOnImage = false;
+
+       document.querySelectorAll('.highlighted-image').forEach(img => {
+           const imgRect = img.getBoundingClientRect();
+           const imgCenter = {
+               x: imgRect.left + imgRect.width / 2,
+               y: imgRect.top + imgRect.height / 2
+           };
+           const distance = Math.sqrt(Math.pow(imgCenter.x - e.pageX, 2) + Math.pow(imgCenter.y - e.pageY, 2));
+
+           if (distance < spotlight.offsetWidth / 2) {
+               img.style.filter = 'brightness(100%)';
+               img.classList.add('wiggle');
+               isSpotlightOnImage = true;
+           } else {
+               img.style.filter = 'brightness(30%)';
+               img.classList.remove('wiggle');
+           }
+       });
+
+       // If the spotlight is not on any image, ensure no image wiggles
+       if (!isSpotlightOnImage) {
+           document.querySelectorAll('.highlighted-image').forEach(img => {
+               img.classList.remove('wiggle');
+           });
+       }
+   });
+});
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Season Detection and Theme Setting
+    const month = new Date().getMonth();
+    if (month >= 3 && month < 6) {
+        document.body.classList.add('spring');
+    } else if (month >= 6 && month < 9) {
+        document.body.classList.add('summer');
+    } else if (month >= 9 && month < 12) {
+        document.body.classList.add('autumn');
+    } else {
+        document.body.classList.add('winter');
+    }
+
+    // Toggle Rain Effect
+    document.getElementById('toggleRain').addEventListener('click', () => {
+        const rainEffect = document.getElementById('rainEffect');
+        if (rainEffect.classList.contains('hidden')) {
+            rainEffect.classList.remove('hidden');
+        } else {
+            rainEffect.classList.add('hidden');
+        }
+    });
+});
+</script>
+
+<script>
+document.getElementById('room1').addEventListener('click', function() {
+    alert('Welcome to Room 1!');
+});
+</script>
+</body>
+
+<script>
+function showDeskItems() {
+    var items = document.getElementById('desk-items');
+    if (items.style.display === 'none') {
+        items.style.display = 'block';
+    } else {
+        items.style.display = 'none';
+    }
+}
+</script>

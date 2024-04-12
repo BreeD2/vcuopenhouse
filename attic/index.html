@@ -1,0 +1,269 @@
+
+<style>
+#attic {
+    width: 100%;
+    height: 100vh;
+
+    background-color: red;
+    position: relative;
+}
+#boxes, #oldChair, #window, #secretPanel {
+    position: absolute;
+    border: 1px solid #000;
+}
+#boxes {
+    width: 200px;
+    height: 100px;
+    left: 20px;
+    bottom: 20px;
+    background-color: #b2bec3;
+}
+
+
+}
+
+#oldChair:hover {
+    transform: scale(1.05); /* Slightly enlarges the chair on hover */
+    filter: brightness(1.2); /* Brightens the chair to simulate interaction */
+}
+
+#oldChair {
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    right: 20px;
+    bottom: 30px;
+    background-image: url('chair.png'); /* An image of an old chair */
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #000;
+  
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), url('chair.png');
+}
+
+
+#window {
+    width: 120px;
+    height: 100px;
+    top: 20px;
+    right: 50%;
+    background-color: #74b9ff;
+    border: 2px solid #bdc3c7;
+    animation: flicker 3s infinite;
+}
+#secretPanel {
+    width: 100px;
+    height: 50px;
+    top: 100px;
+    left: 50px;
+    background-color: #636e72;
+    cursor: pointer;
+}
+
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    box-shadow: 0 0 2px #fff;
+    opacity: 0.8;
+    animation: float 10s infinite linear;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-100vh); }
+}
+.cobweb {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, transparent 10%, #f5f5f5 10%, #f5f5f5 90%, transparent 90%);
+    border-radius: 50%;
+    clip-path: polygon(50% 50%, 100% 0, 50% 100%, 0 0);
+    opacity: 0.75; /* Increased from 0.6 for better visibility */
+    z-index: 10; /* Ensure cobwebs are on top */
+}
+
+#cobweb-top-left {
+    top: 10px;
+    left: 10px;
+    transform: rotate(45deg);
+}
+
+#cobweb-top-right {
+    top: 10px;
+    right: 10px;
+    transform: rotate(-135deg);
+}
+
+#cobweb-bottom-left {
+    bottom: 10px;
+    left: 10px;
+    transform: rotate(135deg);
+}
+
+#cobweb-bottom-right {
+    bottom: 10px;
+    right: 10px;
+    transform: rotate(-45deg);
+}
+
+.draggable {
+    cursor: pointer;
+    user-select: none; /* Prevents the text selection cursor */
+}
+#flashlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    pointer-events: none; /* Allows clicking through the overlay */
+    display: none; /* Initially hidden */
+}
+
+
+
+#window {
+    width: 120px;
+    height: 200px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: #74b9ff;
+    animation: dayNightCycle 60s linear infinite;
+}
+
+@keyframes dayNightCycle {
+    0%, 100% { background-color: #74b9ff; } /* Day */
+    50% { background-color: #34495e; } /* Night */
+}
+
+</style>
+<div id="attic">
+  <div id="cobweb-top-left"></div>
+<div id="cobweb-top-right"></div>
+<div id="cobweb-bottom-left"></div>
+<div id="cobweb-bottom-right"></div>
+    <div id="boxes">Stack of Boxes</div>
+    <div id="oldChair">Old Chair</div>
+      <!-- Drag Boxes to Places -->
+      <div id="window"></div>
+
+
+     <div id="flashlight"></div>
+    <div id="secretPanel" onclick="revealSecret()">Secret Panel</div>
+    <!-- Drag Boxes to Places -->
+    <div class="draggable" draggable="true" id="boxes">Stack of Boxes</div>
+</div>
+
+
+<script>
+function revealSecret() {
+    var secret = document.getElementById('secretPanel');
+    if (secret.innerHTML === 'Secret Panel') {
+        secret.innerHTML = 'Found Secret Treasure!';
+        secret.style.backgroundColor = '#fdcb6e';  // Change color to indicate discovery
+    } else {
+        secret.innerHTML = 'Secret Panel';  // Reset
+        secret.style.backgroundColor = '#636e72';
+    }
+}
+
+function createDustParticles() {
+    const attic = document.getElementById('attic');
+    for (let i = 0; i < 50; i++) {
+        let particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = `${Math.random() * window.innerWidth}px`;
+        attic.appendChild(particle);
+    }
+}
+
+createDustParticles();
+</script>
+<script>
+const draggables = document.querySelectorAll('.draggable');
+
+draggables.forEach(item => {
+    item.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text', e.target.id);
+        e.target.classList.add('dragging');
+    });
+
+    item.addEventListener('dragend', (e) => {
+        e.target.classList.remove('dragging');
+    });
+});
+
+attic.addEventListener('dragover', (e) => {
+    e.preventDefault(); // Necessary to allow dropping
+});
+
+attic.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const id = e.dataTransfer.getData('text');
+    const draggable = document.getElementById(id);
+    draggable.style.left = `${e.clientX - draggable.offsetWidth / 2}px`;
+    draggable.style.top = `${e.clientY - draggable.offsetHeight / 2}px`;
+});
+</script>
+
+<script>
+const attic = document.getElementById('attic');
+const flashlight = document.getElementById('flashlight');
+
+attic.addEventListener('mousemove', function(e) {
+    flashlight.style.display = 'block';
+    flashlight.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, transparent 100px, rgba(0, 0, 0, 0.8) 120px)`;
+});
+
+attic.addEventListener('mouseleave', function() {
+    flashlight.style.display = 'none'; // Hide flashlight when the mouse leaves the attic
+});
+</script>
+
+<script>
+document.getElementById('window').addEventListener('click', function() {
+    const curtains = document.querySelectorAll('.curtain');
+    curtains.forEach(curtain => {
+        curtain.style.width = curtain.style.width === '0%' ? '50%' : '0%';
+    });
+});
+
+</script>
+
+<script>
+document.getElementById('window').addEventListener('click', function() {
+    const windowElement = this;
+    // Check the current animation play state and toggle it
+    if (windowElement.style.animationPlayState === 'paused') {
+        windowElement.style.animationPlayState = 'running';
+    } else {
+        windowElement.style.animationPlayState = 'paused';
+    }
+});
+
+document.getElementById('window').addEventListener('dblclick', function() {
+    const windowElement = this;
+    // Reset the animation
+    windowElement.style.animation = 'none';
+    windowElement.offsetHeight; // Trigger reflow
+    windowElement.style.animation = 'dayNightCycle 30s linear infinite';
+});
+
+</script>
+
+<script>
+document.getElementById('oldChair').addEventListener('click', function() {
+    alert('You found an old diary hidden under the chair!');
+});
+</script>
