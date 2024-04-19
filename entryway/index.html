@@ -124,6 +124,204 @@ img {
   20%, 40%, 60%, 80% { transform: translateX(10px); }
 }
 
+.calendar-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.calendar th, .calendar td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.calendar thead {
+    background-color: #f3f3f3;
+}
+
+.calendar tbody td {
+    background-color: #fdfdfd;
+    cursor: pointer;
+}
+
+.calendar tbody td:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* Overall calendar container styling for alignment and spacing */
+.calendar-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* Header styles for month and year display */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Navigation button styling */
+.calendar-header button {
+    padding: 5px 10px;
+    font-size: 16px;
+    color: #666;
+    background-color: #f9f9f9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.calendar-header button:hover {
+    background-color: #e9e9e9;
+}
+
+/* Table styles */
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar th, .calendar td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Header row specific styling */
+.calendar thead th {
+    background-color: #f3f3f3;
+    color: #666;
+    font-weight: bold;
+}
+
+/* Cell styling */
+.calendar tbody td {
+    cursor: pointer;
+    background-color: #fdfdfd;
+}
+
+.calendar tbody td:hover {
+    background-color: #f0f0f0;
+}
+
+/* Highlight today's date */
+.calendar tbody td.today {
+    background-color: #b2dffb;
+    color: #d63384;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .calendar-container {
+        width: 100%;
+        padding: 10px;
+        margin: 20px 0;
+    }
+
+    .calendar-header h2 {
+        font-size: 20px;
+    }
+
+    .calendar th, .calendar td {
+        padding: 8px;
+    }
+}
+
+.security-dashboard {
+    width: 80%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.security-feature {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.deactivated {
+    background-color: #f44336;
+}
+
+button.locked {
+    background-color: #4CAF50;
+}
+
+button.unlocked {
+    background-color: #f44336;
+}
+audio {
+    display: block;  // Default is to hide the player if not needed
+    width: 100%;  // Ensures control spans the width of its container if displayed
+}
+
+
+
+img {
+    width: 30%;
+    height: auto;
+    max-width: 560px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.bag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+#swingingBag {
+    width: 100px;
+    animation: swing 4s infinite ease-in-out;
+}
+
+@keyframes swing {
+    0%, 100% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+}
 
 </style>
   <div class="topnav" id="myTopnav">
@@ -148,6 +346,49 @@ img {
   <img src="shoes.png" alt="Shoe" id="shoe" draggable="true" ondragstart="drag(event)">
   <div id="mirror" onclick="shakeMirror()">
   <img src="mirror.png" alt="Mirror">
+</div>
+<div class="bag">
+        <img src="bag.png" alt="Bag" id="swingingBag">
+    </div>
+<div class="calendar-container">
+    <div class="calendar-header">
+        <button onclick="moveMonth(-1)">&#10094;</button>
+        <h2 id="monthAndYear"></h2>
+        <button onclick="moveMonth(1)">&#10095;</button>
+    </div>
+    <table class="calendar">
+        <thead>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </thead>
+        <tbody id="calendar-body">
+            <!-- Calendar dates will be filled here using JavaScript -->
+        </tbody>
+    </table>
+</div>
+
+<div class="security-dashboard">
+    <h2>Entryway Security Panel</h2>
+    <div class="security-feature">
+        <h3>Door Lock</h3>
+        <button id="lockButton" onclick="toggleLock()">Locked</button>
+    </div>
+    <div class="security-feature">
+        <h3>Alarm System</h3>
+        <button id="alarmButton" onclick="toggleAlarm()">Deactivated</button>
+    </div>
+    <div class="security-feature">
+        <h3>Live Camera Feed</h3>
+        <img src="camerafeed.png" alt="Camera Feed" id="cameraFeed">
+    </div>
+    <audio id="alarmSound" src="alarm_sound.mp3"></audio>
 </div>
 
 
@@ -192,6 +433,83 @@ function shakeMirror() {
   mirror.classList.add('shake');
   setTimeout(function() { mirror.classList.remove('shake'); }, 500); // Remove the class after the animation ends
 }
+</script>
+<script>
+let currentYear;
+let currentMonth;
+
+window.onload = function() {
+    const today = new Date();
+    currentYear = today.getFullYear();
+    currentMonth = today.getMonth();
+    showCalendar(currentMonth, currentYear);
+}
+
+function showCalendar(month, year) {
+    const firstDay = new Date(year, month).getDay();
+    const daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+    const tbl = document.getElementById("calendar-body");
+    tbl.innerHTML = ""; // Clearing all previous cells
+
+    // Filling data about month and in the page via DOM.
+    document.getElementById("monthAndYear").innerHTML = `${monthNames[month]} ${year}`;
+
+    let date = 1;
+    for (let i = 0; i < 6; i++) {
+        let row = document.createElement("tr");
+        for (let j = 0; j < 7; j++) {
+            if (i === 0 && j < firstDay) {
+                let cell = document.createElement("td");
+                let cellText = document.createTextNode("");
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            } else if (date > daysInMonth) {
+                break;
+            } else {
+                let cell = document.createElement("td");
+                let cellText = document.createTextNode(date);
+                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                    cell.classList.add("bg-info"); // Highlight today's date
+                }
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+                date++;
+            }
+        }
+        tbl.appendChild(row); // Append each row into calendar body
+    }
+}
+
+function moveMonth(step) {
+    currentMonth += step;
+    if (currentMonth < 0 || currentMonth > 11) {
+        currentMonth = (currentMonth + 12) % 12;
+        currentYear += step < 0 ? -1 : 1;
+    }
+    showCalendar(currentMonth, currentYear);
+}
+
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+</script>
+<script>
+function toggleAlarm() {
+    const alarmButton = document.getElementById('alarmButton');
+    const alarmSound = document.getElementById('alarmSound');
+
+    if (alarmButton.textContent === "Activated") {
+        alarmButton.textContent = "Deactivated";
+        alarmButton.classList.add('deactivated');
+        alarmSound.play();  // Play the alarm sound when the alarm is deactivated
+    } else {
+        alarmButton.textContent = "Activated";
+        alarmButton.classList.remove('deactivated');
+        alarmSound.pause();  // Stop the alarm sound when the alarm is activated
+        alarmSound.currentTime = 0;  // Reset audio playback to the start
+    }
+}
+
 </script>
 </body>
 </html>
