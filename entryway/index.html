@@ -92,6 +92,39 @@ body::-webkit-scrollbar-track {
     border-radius: 10px;  /* Fully rounded track edges for a sleek look */
 }
 
+.shoe-rack {
+  width: 300px;
+  height: 200px;
+  border: 1px solid #ccc;
+  text-align: center;
+  padding-top: 70px;
+  background-color: #f9f9f9;
+}
+
+img {
+  width: 100px;
+  height: auto;
+  cursor: move; /* Cursor indicates the item can be moved */
+}
+
+#mirror {
+  display: inline-block;
+  transition: transform 0.1s;
+  will-change: transform; /* Optimizes animations */
+}
+
+.shake {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+
 </style>
   <div class="topnav" id="myTopnav">
          <a href="..//index.html" >Home</a>
@@ -109,17 +142,15 @@ body::-webkit-scrollbar-track {
 
 
     <h1>Customize Your Entryway</h1>
-    <div id="entryway-customization">
-        <!-- Dropdown for door styles -->
-        <label for="door-style">Choose a Door Style:</label>
-        <select id="door-style">
-            <option value="modern">Modern</option>
-            <option value="classic">Classic</option>
-            <option value="rustic">Rustic</option>
-        </select>
-        <!-- Placeholder for the door image -->
-        <img id="door-image" src="modern-door.jpg" alt="Door Style">
-    </div>
+    <div class="shoe-rack" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <p>Drop shoes here</p>
+  </div>
+  <img src="shoes.png" alt="Shoe" id="shoe" draggable="true" ondragstart="drag(event)">
+  <div id="mirror" onclick="shakeMirror()">
+  <img src="mirror.png" alt="Mirror">
+</div>
+
+
 
     <!-- Additional features like lighting, flooring, etc., can be added here -->
 
@@ -138,6 +169,28 @@ function myFunction() {
     } else {
         x.className = "topnav";
     }
+}
+</script>
+<script>
+function allowDrop(event) {
+  event.preventDefault(); // Necessary to allow the drop
+}
+
+function drag(event) {
+  event.dataTransfer.setData("text", event.target.id);
+}
+
+function drop(event) {
+  event.preventDefault();
+  var data = event.dataTransfer.getData("text");
+  event.target.appendChild(document.getElementById(data));
+}
+</script>
+<script>
+function shakeMirror() {
+  var mirror = document.getElementById('mirror');
+  mirror.classList.add('shake');
+  setTimeout(function() { mirror.classList.remove('shake'); }, 500); // Remove the class after the animation ends
 }
 </script>
 </body>

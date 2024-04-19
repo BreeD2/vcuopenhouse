@@ -290,6 +290,13 @@ body::-webkit-scrollbar-thumb {
     border-radius: 6px;
     border: 2px solid #e3e4e6;
 }
+body::-webkit-scrollbar {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+body:hover::-webkit-scrollbar {
+    opacity: 1; /* Show scrollbar when the body is hovered */
+}
 
 
 </style>
