@@ -104,6 +104,30 @@ button {
     background-image: url('day.webp'); /* Placeholder image representing day */
 }
 
+/* Bedroom Specific Scrollbar Styling for a relaxing, pillow-like vibe */
+body::-webkit-scrollbar {
+    width: 12px; /* Appropriate width for the scrollbar */
+    background: #f3f4f6; /* Very light grey, evoking softness and calm */
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #dcd0c0; /* Soft beige, reminiscent of a plush pillow */
+    border-radius: 8px; /* Smoother rounded corners for a softer appearance */
+    border: 3px solid #f3f4f6; /* Blending border to merge gently with the track */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for a textured look */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #cbb8a9; /* Warm beige, slightly darker for better interaction visibility */
+    border-color: #e2ded9; /* Lighter, creamy border on hover for a soft highlight */
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1); /* Soft shadow within the track for a subtle depth */
+    border-radius: 10px; /* Fully rounded edges on the track to maintain the soft look */
+}
+
+
 /* Styling for curtains (simulated using before and after pseudo-elements) */
 .curtains-control::before, .curtains-control::after {
     content: '';
@@ -218,6 +242,7 @@ input, button {
   body {
       margin: 0;
       font-family: Arial, sans-serif;
+      background:ghostwhite
   }
 
 
@@ -241,7 +266,9 @@ input, button {
               display: block;
               text-align: left;
           }
-      }
+
+
+
 
 
   </style>
@@ -263,6 +290,8 @@ input, button {
         <h1>Open House - Bedroom</h1>
 
     </div>
+   <button id="toggle-theme">Toggle Theme</button>
+    <div id="content">
     <div>
         <label for="temp-slider">Adjust Temperature:</label>
         <input type="range" id="temp-slider" min="10" max="30" value="20">
@@ -290,7 +319,7 @@ input, button {
           <img src="chair-icon.png" alt="Chair" class="draggable" draggable="true" id="chair">
           <img src="table-icon.png" alt="Table" class="draggable" draggable="true" id="table">
       </div>
-
+</div>
 
 <script>
   document.getElementById('temp-slider').addEventListener('input', function() {
@@ -408,6 +437,23 @@ if (x.className === "topnav") {
     x.className = "topnav";
 }
 }
+</script>
+<script>
+  document.getElementById('toggle-theme').addEventListener('click', function() {
+      const body = document.body;
+
+      if (body.classList.contains('dark-theme')) {
+          // If currently dark theme, switch to light theme
+          body.classList.replace('dark-theme', 'light-theme');
+      } else if (body.classList.contains('light-theme')) {
+          // If currently light theme, remove all theme-specific classes (back to original)
+          body.classList.remove('light-theme');
+      } else {
+          // If no theme class or original theme, switch to dark theme
+          body.classList.add('dark-theme');
+      }
+  });
+
 </script>
 
 </body>

@@ -90,6 +90,77 @@ body {
             text-align: left;
         }
     }
+
+    /* Global Body Scrollbar Styling */
+body::-webkit-scrollbar {
+    width: 12px; /* Consistent width for easy interaction */
+    background: #f8f0e3; /* Light, warm background evoking a cozy atmosphere */
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #a67c52; /* Rich wood color, reminiscent of polished furniture */
+    border-radius: 6px; /* Softly rounded corners for a refined look */
+    border: 2px solid #f8f0e3; /* Matching border for seamless design integration */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #8f6948; /* Slightly darker wood tone on hover for interactive feedback */
+    border-color: #decab9; /* Lighter border on hover to enhance the visual appeal */
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1); /* Subtle shadow for added depth */
+    border-radius: 10px; /* Fully rounded edges for a smooth scrolling experience */
+}
+
+.dining-room-content::-webkit-scrollbar {
+    width: 12px;
+    background: #f8f0e3;
+}
+
+.dining-room-content::-webkit-scrollbar-thumb {
+    background: #a67c52;
+    border-radius: 6px;
+}
+
+.custom-scrollbar-container {
+    position: relative;
+    height: 400px; /* Set to the desired height */
+    overflow: hidden;
+}
+
+.dining-room-content {
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Hide native scrollbar for Firefox */
+}
+
+.dining-room-content::-webkit-scrollbar {
+    display: none; /* Hide native scrollbar for WebKit browsers */
+}
+
+.scroll-button {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+    padding: 5px;
+    background: #ddd;
+    color: #333;
+}
+
+.scroll-button.up {
+    top: 0;
+}
+
+.scroll-button.down {
+    bottom: 0;
+}
+
+
     </style>
 
     <div class="topnav" id="myTopnav">
@@ -105,7 +176,9 @@ body {
                <i class="fa fa-bars"></i>
            </a>
        </div>
-
+       <div class="custom-scrollbar-container">
+           <div class="scroll-button up" onclick="scrollUp()">↑</div>
+           <div class="dining-room-content">
     <h1>Customize Your Dining Room</h1>
 
     <div id="table-customization">
@@ -130,6 +203,9 @@ body {
         </select>
         <img id="artwork-image" src="landscape.jpeg" alt="Artwork">
     </div>
+  </div>
+  <div class="scroll-button down" onclick="scrollDown()">↓</div>
+</div>
 
     <script>
         document.getElementById('table-setting').addEventListener('change', function() {
@@ -156,6 +232,31 @@ function myFunction() {
     } else {
         x.className = "topnav";
     }
+}
+</script>
+<script>
+  const scrollContent = document.querySelector('.dining-room-content');
+
+scrollContent.addEventListener('scroll', function() {
+    const scrollPercentage = (this.scrollTop / (this.scrollHeight - this.clientHeight)) * 100;
+
+    // Change color based on scroll position
+    const colorIntensity = Math.min(255, Math.floor(255 * scrollPercentage / 100));
+    this.style.setProperty('--scroll-thumb-color', `rgb(${colorIntensity}, 100, 100)`);
+
+    // Update the scrollbar thumb color dynamically
+    this.style.setProperty('--scroll-thumb-color', `rgb(${colorIntensity}, 82, 82)`);
+});
+</script>
+<script>
+  function scrollUp() {
+    const content = document.querySelector('.dining-room-content');
+    content.scrollBy({ top: -100, behavior: 'smooth' });
+}
+
+function scrollDown() {
+    const content = document.querySelector('.dining-room-content');
+    content.scrollBy({ top: 100, behavior: 'smooth' });
 }
 </script>
 </body>

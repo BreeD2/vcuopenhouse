@@ -275,6 +275,28 @@
            width: 100%;
        }
 
+       /* Living Room Specific Scrollbar Styling */
+body::-webkit-scrollbar {
+    width: 12px;  /* Optimal width for desktop screens, visible yet unobtrusive */
+    background: #f4ece2;  /* Soft beige, reminiscent of wall color or drapery */
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #cb997e;  /* Warm earth tone, simulating wooden furniture or leather */
+    border-radius: 8px;  /* Gentle rounded corners for a softer look */
+    border: 2px solid #f4ece2;  /* Light border to blend with the track background */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #b08868;  /* A darker shade for interactive feedback */
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.1);  /* Subtle shadow for a depth effect */
+    border-radius: 10px;  /* Fully rounded edges to enhance the soft aesthetic */
+}
+
+
 </style>
 
 

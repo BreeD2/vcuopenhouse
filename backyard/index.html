@@ -22,6 +22,8 @@
 <link rel="stylesheet"href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <style>
   #backyard {
@@ -151,6 +153,69 @@
           }
       }
 
+      body::-webkit-scrollbar-thumb::before {
+    content: '\f02d'; /* FontAwesome book icon */
+    font-family: FontAwesome;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0.5;
+}
+/* Ensure the FontAwesome library is loaded */
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/webfonts/fa-solid-900.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body::-webkit-scrollbar {
+    width: 16px;  /* Wider scrollbar for better visibility */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: darkgrey; /* Color of the thumb */
+    color: white; /* Text color */
+    text-align: center; /* Center the text icon */
+    line-height: 20px; /* Align text icon vertically */
+    font-family: 'FontAwesome'; /* Set the font-family to FontAwesome */
+}
+
+body::-webkit-scrollbar-thumb::after {
+    content: '\f02d'; /* FontAwesome book icon */
+    display: block; /* Necessary for content to show */
+}
+
+body {
+    position: relative;
+    padding-right: 50px; /* Ensure space for the icon */
+}
+
+.scrollbar-icon {
+    position: fixed;
+    right: 20px; /* Adjust based on actual scrollbar width and desired spacing */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+    font-size: 24px; /* Icon size */
+    color: green; /* Icon color */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+/* Additional styling for the scrollbar itself */
+body::-webkit-scrollbar {
+    width: 12px;
+    background-color: #E3E4E6; /* A light grey background */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #A9DFBF; /* A soft green to fit the backyard theme */
+    border-radius: 6px;
+}
+
+
 </style>
 
 
@@ -173,6 +238,7 @@
 <div id="backyard">
   <div id="fire" onclick="toggleFire()"></div>
     <div id="smoke" style="display: none;"></div> <!-- Initially hidden -->
+    <i class="scrollbar-icon fas fa-leaf"></i>
 
 </div>
 
@@ -223,4 +289,11 @@ if (x.className === "topnav") {
     x.className = "topnav";
 }
 }
+</script>
+<script>
+  window.addEventListener('scroll', () => {
+    const icon = document.querySelector('.scrollbar-icon');
+    // Example: Change icon color based on scroll position
+    icon.style.color = window.scrollY > 500 ? '#58D68D' : 'green';
+});
 </script>
