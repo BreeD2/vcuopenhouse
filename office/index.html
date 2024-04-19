@@ -1,0 +1,318 @@
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backyard</title>
+
+
+
+        <link rel="icon" type="image/x-icon" href="..//favicon/favicon.ico"/>
+        <link rel="apple-touch-icon" sizes="76x76" href="..//favicon/apple-touch-icon.png">
+      <link rel="icon" type="favicon/image/png" sizes="32x32" href="..//favicon-32x32.png">
+      <link rel="icon" type="favicon/image/png" sizes="16x16" href="..//favicon-16x16.png">
+
+
+  <link rel="mask-icon" href="..//favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+    <center>
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style>
+  #backyard {
+      width: 100vw;
+      height: 100vh;
+      transition: background-color 2s;
+      background-color: #74b9ff; /* Daytime color */
+  }
+
+  #backyard {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #8fbc8f; /* Grass color */
+}
+
+#firePit {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background: #333;
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+
+#fire {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background: linear-gradient(orange, red, black);
+    border-radius: 50px;
+    box-shadow: 0 0 20px 5px yellow;
+    cursor: pointer;
+    animation: burnFire 3s linear infinite;
+}
+
+@keyframes burnFire {
+    0%, 100% { background: linear-gradient(orange, red, black); }
+    50% { background: linear-gradient(red, orange, black); }
+}
+
+#smoke {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: rgba(128, 128, 128, 0.5);
+    border-radius: 50%;
+    display: none;
+    animation: riseSmoke 4s ease-out forwards;
+    transform: translateX(-50%);
+}
+
+@keyframes riseSmoke {
+    0% {
+        bottom: 100px;
+        opacity: 0.7;
+    }
+    100% {
+        bottom: 180px;
+        opacity: 0;
+        transform: scale(3);
+    }
+}
+
+
+
+          .topnav {
+          overflow: hidden;
+          background-color: dodgerblue;
+      }
+
+      .topnav a {
+          float: left;
+          display: block;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+      }
+
+      .topnav a:hover {
+          background-color: #ddd;
+          color: black;
+      }
+
+      .topnav a.active {
+          background-color: #4CAF50;
+          color: white;
+      }
+
+      .topnav .icon {
+          display: none;
+      }
+
+      /* styles.css */
+  body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+  }
+
+
+      @media screen and (max-width: 600px) {
+          .topnav a:not(:first-child) {display: none;}
+          .topnav a.icon {
+              float: right;
+              display: block;
+          }
+      }
+
+      @media screen and (max-width: 600px) {
+          .topnav.responsive {position: relative;}
+          .topnav.responsive .icon {
+              position: absolute;
+              right: 0;
+              top: 0;
+          }
+          .topnav.responsive a {
+              float: none;
+              display: block;
+              text-align: left;
+          }
+      }
+
+      #office {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+#office-view {
+    width: 600px;
+    height: 400px;
+    margin: auto;
+    border: 1px solid black;
+    position: relative;
+    background-color: #fff;
+}
+
+#furniture {
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #666;
+    border: 1px solid #333;
+}
+
+#laptop {
+    width: 300px;
+    height: 200px;
+    border: 3px solid #333;
+    position: relative;
+    background-color: #000;
+}
+
+#screen {
+    width: 90%;
+    height: 90%;
+    background-color: #000;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.laptop-on #screen {
+    background-color: #ddd; /* Simulating a lit screen */
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+.laptop-off #screen {
+    background-color: #000; /* Simulating a turned off screen */
+}
+
+</style>
+
+
+<body>
+
+  <div class="topnav" id="myTopnav">
+         <a href="..//index.html" >Home</a>
+         <a href="..//attic/index.html" >Attic</a>
+         <a href="..//backyard/index.html" >Backyard</a>
+         <a href="..//bedroom/index.html">Bedroom</a>
+          <a href="..//diningroom/index.html">Dining Room</a>
+           <a href="..//entryway/index.html">Entryway</a>
+            <a href="..//livingroom/index.html">Living Room</a>
+              <a href="index.html"  class="active">Office</a>
+         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+             <i class="fa fa-bars"></i>
+         </a>
+     </div>
+     <h1>Customize Your Office</h1>
+       <div id="office">
+           <select id="furniture-style">
+               <option value="executive">Executive Desk</option>
+               <option value="modern">Modern Desk</option>
+               <option value="sitStand">Sit-Stand Desk</option>
+           </select>
+           <button onclick="addFurniture()">Add Furniture</button>
+
+           <label for="wall-color">Choose Wall Color:</label>
+           <input type="color" id="wall-color" value="#ffffff">
+           <button onclick="changeWallColor()">Change Color</button>
+       </div>
+       <div id="office-view">
+           <div id="furniture"></div>
+       </div>
+       <div id="laptop" class="laptop-off">
+              <div id="screen"></div>
+          </div>
+          <button id="power-button">Turn On</button>
+
+
+<script>
+  document.getElementById('toggleDayNight').addEventListener('click', function() {
+      const backyard = document.getElementById('backyard');
+      if (backyard.style.backgroundColor === 'rgb(116, 185, 255)') {
+          backyard.style.backgroundColor = '#343a40'; /* Nighttime color */
+      } else {
+          backyard.style.backgroundColor = '#74b9ff'; /* Daytime color */
+      }
+  });
+
+</script>
+
+<script>
+  function addFurniture() {
+      var furnitureStyle = document.getElementById('furniture-style').value;
+      var furniture = document.getElementById('furniture');
+      // Change the furniture style based on selection
+      switch (furnitureStyle) {
+          case 'executive':
+              furniture.style.backgroundColor = '#80461b'; // Dark brown
+              break;
+          case 'modern':
+              furniture.style.backgroundColor = '#bdbdbd'; // Grey
+              break;
+          case 'sitStand':
+              furniture.style.backgroundColor = '#008000'; // Green
+              break;
+          default:
+              furniture.style.backgroundColor = '#666'; // Default
+      }
+  }
+
+  function changeWallColor() {
+      var colorPicker = document.getElementById('wall-color');
+      var officeView = document.getElementById('office-view');
+      officeView.style.backgroundColor = colorPicker.value;
+  }
+
+
+</script>
+
+<script>
+  // script.js
+function myFunction() {
+var x = document.getElementById("myTopnav");
+if (x.className === "topnav") {
+    x.className += " responsive";
+} else {
+    x.className = "topnav";
+}
+}
+</script>
+<script>
+  // script.js
+  document.getElementById('power-button').addEventListener('click', function() {
+      var laptop = document.getElementById('laptop');
+      var button = document.getElementById('power-button');
+      if (laptop.classList.contains('laptop-on')) {
+          laptop.classList.remove('laptop-on');
+          laptop.classList.add('laptop-off');
+          button.textContent = 'Turn On';
+      } else {
+          laptop.classList.remove('laptop-off');
+          laptop.classList.add('laptop-on');
+          button.textContent = 'Turn Off';
+      }
+  });
+
+</script>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open House Bedroom Theme</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet"href="style.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+     <link rel="icon" type="image/x-icon" href="..//favicon/favicon.ico"/>
+     <link rel="apple-touch-icon" sizes="76x76" href="..//favicon/apple-touch-icon.png">
+   <link rel="icon" type="favicon/image/png" sizes="32x32" href="..//favicon-32x32.png">
+   <link rel="icon" type="favicon/image/png" sizes="16x16" href="..//favicon-16x16.png">
+</head>
+
+  <style>
+    /* styles.css */
+
+
+  .bedroom {
+      max-width: 600px;
+      margin: auto;
+      text-align: center;
+  }
+
+  button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      cursor: pointer;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+  }
+
+  .dark-mode {
+      background-color: #333;
+      color: #fff;
+  }
+
+  input[type="range"] {
+    width: 300px;
+}
+#window-view {
+    width: 100%;
+    height: 300px;
+    background: url('nightview.jpeg'); /* Placeholder image representing night */
+    transition: background 0.5s ease;
+}
+
+.window-open {
+    background: url('dayview.webp'); /* Placeholder image representing day */
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.closet img {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: auto;
+}
+
+.closet button {
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+    background: #555;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Basic styling for the container and window view */
+.curtains-control {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#window-view {
+    width: 100%;
+    height: 300px;
+    background-image: url('nightview.jpeg'); /* Placeholder image representing night */
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease;
+}
+
+.window-open {
+    background-image: url('day.webp'); /* Placeholder image representing day */
+}
+
+/* Styling for curtains (simulated using before and after pseudo-elements) */
+.curtains-control::before, .curtains-control::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
+    transition: transform 0.5s ease;
+    z-index: 10;
+}
+
+.curtains-control::before {
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.curtains-control::after {
+    right: 0;
+    transform: translateX(100%);
+}
+
+.window-open::before {
+    transform: translateX(0%);
+}
+
+.window-open::after {
+    transform: translateX(0%);
+}
+
+/* Button styling for better interaction */
+button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 20;
+}
+
+.alarm-container {
+    text-align: center;
+      margin-top:100px
+}
+
+input, button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+#set-alarm {
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+      margin-top:300px
+}
+#floor-plan {
+    width: 600px;
+    height: 400px;
+    border: 2px dashed #ccc;
+    position: relative;
+    overflow: hidden;
+}
+
+.draggable {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    cursor: move;
+}
+
+
+
+          .topnav {
+          overflow: hidden;
+          background-color: dodgerblue;
+      }
+
+      .topnav a {
+          float: left;
+          display: block;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+      }
+
+      .topnav a:hover {
+          background-color: #ddd;
+          color: black;
+      }
+
+      .topnav a.active {
+          background-color: #4CAF50;
+          color: white;
+      }
+
+      .topnav .icon {
+          display: none;
+      }
+
+      /* styles.css */
+  body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+  }
+
+
+      @media screen and (max-width: 600px) {
+          .topnav a:not(:first-child) {display: none;}
+          .topnav a.icon {
+              float: right;
+              display: block;
+          }
+      }
+
+      @media screen and (max-width: 600px) {
+          .topnav.responsive {position: relative;}
+          .topnav.responsive .icon {
+              position: absolute;
+              right: 0;
+              top: 0;
+          }
+          .topnav.responsive a {
+              float: none;
+              display: block;
+              text-align: left;
+          }
+      }
+
+
+  </style>
+<body>
+  <div class="topnav" id="myTopnav">
+         <a href="..//index.html">Home</a>
+         <a href="..//attic/index.html">Attic</a>
+         <a href="..//backyard/index.html">Backyard</a>
+         <a href="index.html"  class="active">Bedroom</a>
+          <a href="..//diningroom/index.html">Dining Room</a>
+           <a href="..//entryway/index.html">Entryway</a>
+            <a href="..//livingroom/index.html">Living Room</a>
+              <a href="..//office/index.html">Office</a>
+         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+             <i class="fa fa-bars"></i>
+         </a>
+     </div>
+<div class="bedroom">
+        <h1>Open House - Bedroom</h1>
+
+    </div>
+    <div>
+        <label for="temp-slider">Adjust Temperature:</label>
+        <input type="range" id="temp-slider" min="10" max="30" value="20">
+        <span id="temp-value">20°C</span>
+    </div>
+    <div class="curtains-control">
+    <button id="curtain-toggle">Toggle Curtains</button>
+    <div id="window-view" class="window-closed"></div>
+</div>
+<div class="closet">
+    <button onclick="changeItem(-1)">&#10094;</button>
+    <img src="clothes1.png" id="clothes" alt="Clothes Image">
+    <button onclick="changeItem(1)">&#10095;</button>
+    <img src="pants.webp" id="clothes" alt="Clothes Image">
+</div>
+<div class="alarm-container">
+       <h1>Alarm Clock</h1>
+       <input type="time" id="alarm-set" required>
+       <button id="set-alarm">Set Alarm</button>
+       <button id="snooze-alarm" style="display:none;">Snooze</button>
+       <p id="status"></p>
+   </div>
+   <div id="floor-plan">
+          <img src="bed-icon.png" alt="Bed" class="draggable" draggable="true" id="bed">
+          <img src="chair-icon.png" alt="Chair" class="draggable" draggable="true" id="chair">
+          <img src="table-icon.png" alt="Table" class="draggable" draggable="true" id="table">
+      </div>
+
+
+<script>
+  document.getElementById('temp-slider').addEventListener('input', function() {
+    var temperature = this.value;
+    document.getElementById('temp-value').textContent = temperature + '°C';
+    var color = `hsl(${(30 - temperature) * 4}, 70%, 50%)`;
+    document.body.style.backgroundColor = color;
+});
+</script>
+<script>
+  document.getElementById('curtain-toggle').addEventListener('click', function() {
+    var windowView = document.getElementById('window-view');
+    windowView.classList.toggle('window-open');
+});
+</script>
+<script>
+  document.getElementById('curtain-toggle').addEventListener('click', function() {
+      var curtainsControl = document.querySelector('.curtains-control');
+      curtainsControl.classList.toggle('window-open');
+  });
+
+  var clothesIndex = 1;
+  var clothesImages = ['clothes1.png', 'pants.webp', 'clothes3.png']; // Ensure these are correct
+
+  function changeItem(n) {
+      clothesIndex += n;
+      if (clothesIndex > clothesImages.length - 1) clothesIndex = 0;
+      if (clothesIndex < 0) clothesIndex = clothesImages.length - 1;
+      document.querySelectorAll('.clothes-img').forEach((img) => {
+          img.src = clothesImages[clothesIndex];
+      });
+  }
+
+</script>
+<script>
+  let alarmTime;  // Define outside to maintain scope
+
+  document.getElementById('set-alarm').addEventListener('click', function() {
+      alarmTime = document.getElementById('alarm-set').value;
+      const status = document.getElementById('status');
+      const snoozeButton = document.getElementById('snooze-alarm');
+      let alarmInterval;
+
+      function checkAlarm() {
+          const now = new Date();
+          const hours = now.getHours().toString().padStart(2, '0');
+          const minutes = now.getMinutes().toString().padStart(2, '0');
+          const currentTime = `${hours}:${minutes}`;
+
+          if (currentTime === alarmTime) {
+              alert("Alarm ringing!");
+              snoozeButton.style.display = 'inline';
+              clearInterval(alarmInterval); // Stop checking once the alarm has rung
+              status.textContent = "Alarm rang at: " + currentTime; // Update status
+          }
+      }
+
+      alarmInterval = setInterval(checkAlarm, 60000); // check every minute
+
+      snoozeButton.onclick = function() {
+          const now = new Date();
+          now.setMinutes(now.getMinutes() + 5); // Snooze for 5 minutes
+          const snoozeHours = now.getHours().toString().padStart(2, '0');
+          const snoozeMinutes = now.getMinutes().toString().padStart(2, '0');
+          document.getElementById('alarm-set').value = `${snoozeHours}:${snoozeMinutes}`;
+          alarmTime = `${snoozeHours}:${snoozeMinutes}`; // Update alarm time
+          alarmInterval = setInterval(checkAlarm, 60000); // Re-activate the checking
+          snoozeButton.style.display = 'none'; // Hide snooze button
+          status.textContent = "Snoozed to: " + alarmTime; // Update status
+      };
+  });
+</script>
+<script>
+  // script.js
+document.querySelectorAll('.draggable').forEach(item => {
+    item.addEventListener('dragstart', dragStart);
+    item.addEventListener('dragend', dragEnd);
+});
+
+function dragStart(e) {
+    e.dataTransfer.setData('text/plain', e.target.id);
+    setTimeout(() => {
+        e.target.classList.add('hide');
+    }, 0);
+}
+
+function dragEnd(e) {
+    e.target.classList.remove('hide');
+}
+
+const floorPlan = document.getElementById('floor-plan');
+floorPlan.addEventListener('dragover', dragOver);
+floorPlan.addEventListener('drop', drop);
+
+function dragOver(e) {
+    e.preventDefault();
+}
+
+function drop(e) {
+    e.preventDefault();
+    const id = e.dataTransfer.getData('text/plain');
+    const draggable = document.getElementById(id);
+    draggable.style.left = `${e.offsetX - draggable.offsetWidth / 2}px`;
+    draggable.style.top = `${e.offsetY - draggable.offsetHeight / 2}px`;
+}
+</script>
+
+<script>
+  // script.js
+function myFunction() {
+var x = document.getElementById("myTopnav");
+if (x.className === "topnav") {
+    x.className += " responsive";
+} else {
+    x.className = "topnav";
+}
+}
+</script>
+
+</body>

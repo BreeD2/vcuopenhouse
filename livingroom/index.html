@@ -1,0 +1,466 @@
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backyard</title>
+
+
+
+        <link rel="icon" type="image/x-icon" href="..//favicon/favicon.ico"/>
+        <link rel="apple-touch-icon" sizes="76x76" href="..//favicon/apple-touch-icon.png">
+      <link rel="icon" type="favicon/image/png" sizes="32x32" href="..//favicon-32x32.png">
+      <link rel="icon" type="favicon/image/png" sizes="16x16" href="..//favicon-16x16.png">
+
+
+  <link rel="mask-icon" href="..//favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+    <center>
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style>
+  #backyard {
+      width: 100vw;
+      height: 100vh;
+      transition: background-color 2s;
+      background-color: #74b9ff; /* Daytime color */
+  }
+
+  #backyard {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #8fbc8f; /* Grass color */
+}
+
+#firePit {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background: #333;
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+
+#fire {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background: linear-gradient(orange, red, black);
+    border-radius: 50px;
+    box-shadow: 0 0 20px 5px yellow;
+    cursor: pointer;
+    animation: burnFire 3s linear infinite;
+}
+
+@keyframes burnFire {
+    0%, 100% { background: linear-gradient(orange, red, black); }
+    50% { background: linear-gradient(red, orange, black); }
+}
+
+#smoke {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: rgba(128, 128, 128, 0.5);
+    border-radius: 50%;
+    display: none;
+    animation: riseSmoke 4s ease-out forwards;
+    transform: translateX(-50%);
+}
+
+@keyframes riseSmoke {
+    0% {
+        bottom: 100px;
+        opacity: 0.7;
+    }
+    100% {
+        bottom: 180px;
+        opacity: 0;
+        transform: scale(3);
+    }
+}
+
+
+
+          .topnav {
+          overflow: hidden;
+          background-color: dodgerblue;
+      }
+
+      .topnav a {
+          float: left;
+          display: block;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+      }
+
+      .topnav a:hover {
+          background-color: #ddd;
+          color: black;
+      }
+
+      .topnav a.active {
+          background-color: #4CAF50;
+          color: white;
+      }
+
+      .topnav .icon {
+          display: none;
+      }
+
+      /* styles.css */
+  body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+  }
+
+
+      @media screen and (max-width: 600px) {
+          .topnav a:not(:first-child) {display: none;}
+          .topnav a.icon {
+              float: right;
+              display: block;
+          }
+      }
+
+      @media screen and (max-width: 600px) {
+          .topnav.responsive {position: relative;}
+          .topnav.responsive .icon {
+              position: absolute;
+              right: 0;
+              top: 0;
+          }
+          .topnav.responsive a {
+              float: none;
+              display: block;
+              text-align: left;
+          }
+      }
+
+      #window {
+      border: 2px solid black; /* Represents the window */
+      overflow: hidden; /* Keeps treatments within the window area */
+  }
+
+  #treatment {
+      transition: all 0.5s ease; /* Smooth transition for color and changes */
+  }
+
+  select, input[type="color"] {
+      margin-top: 20px;
+      padding: 5px;
+  }
+
+  #lamp {
+    position: relative;
+    left: 50px; /* Position as needed */
+    top: 50px;
+}
+
+#lamp-base {
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#lamp-stand {
+    width: 5px;
+    height: 100px;
+    background-color: #333;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#lamp-shade {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 30px 30px 0 0;
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 -20px 20px rgba(255, 255, 255, 0.5); /* simulate light */
+}
+
+#tv {
+    position: relative;
+    left: 100px; /* Position as needed */
+    top: 100px;
+}
+
+#tv-screen {
+    width: 120px;
+    height: 70px;
+    background-color: #000;
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* subtle shadow for depth */
+}
+
+#tv-stand {
+    width: 40px;
+    height: 20px;
+    background-color: #333;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 5px 5px;
+}
+
+#bookshelf {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 20px;
+    background-color: #f8f8f8;
+}
+
+.book {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+#book-info {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+#plant-care {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#plant {
+    margin: 10px auto;
+    border: 1px solid #888;
+}
+
+#living-room {
+           width: 100%;
+           height: 300px;
+           background: linear-gradient(to bottom, #87CEEB, #f4f4f4);
+           transition: background 0.3s ease;
+       }
+       input[type="range"] {
+           width: 100%;
+       }
+
+</style>
+
+
+<body>
+
+  <div class="topnav" id="myTopnav">
+         <a href="..//index.html" >Home</a>
+         <a href="..//attic/index.html" >Attic</a>
+         <a href="..//backyard/index.html"  class="active">Backyard</a>
+         <a href="..//bedroom/index.html">Bedroom</a>
+          <a href="..//diningroom/index.html">Dining Room</a>
+           <a href="..//entryway/index.html">Entryway</a>
+            <a href="index.html">Living Room</a>
+              <a href="..//office/index.html">Office</a>
+         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+             <i class="fa fa-bars"></i>
+         </a>
+     </div>
+
+
+     <div id="living-room">
+        <!-- Window Area to Visualize Treatments -->
+        <div id="window" style="background-color: #ccc; height: 300px; width: 200px; margin: auto; position: relative;">
+            <div id="treatment" style="width: 100%; height: 100%;"></div>
+        </div>
+
+        <!-- Dropdown for selecting window treatments -->
+        <select id="treatment-style">
+            <option value="">Select a Treatment</option>
+            <option value="curtains">Curtains</option>
+            <option value="blinds">Blinds</option>
+            <option value="drapes">Drapes</option>
+        </select>
+
+        <!-- Color Picker for Treatments -->
+        <input type="color" id="color-picker" value="#ffffff">
+    </div>
+
+    <div id="lamp" style="cursor: pointer;"> <!-- Added cursor style for better UX -->
+         <div id="lamp-base"></div>
+         <div id="lamp-stand"></div>
+         <div id="lamp-shade"></div>
+     </div>
+
+     <div id="tv" style="cursor: pointer;"> <!-- Added cursor style for better UX -->
+         <div id="tv-screen"></div>
+         <div id="tv-stand"></div>
+     </div>
+     <div id="bookshelf">
+         <h2>Interactive Bookshelf</h2>
+         <div class="book" onclick="showBookInfo('Book 1 Title', 'This is a summary of Book 1.')">Book 1</div>
+         <div class="book" onclick="showBookInfo('Book 2 Title', 'This is a summary of Book 2.')">Book 2</div>
+         <div class="book" onclick="showBookInfo('Book 3 Title', 'This is a summary of Book 3.')">Book 3</div>
+         <!-- Add more books as needed -->
+     </div>
+     <div id="book-info"></div>
+     <div id="plant-care">
+    <h2>Plant Care</h2>
+    <div id="plant" style="height: 50px; background-color: green; width: 50px;"></div>
+    <button onclick="waterPlant()">Water Plant</button>
+</div>
+
+
+<script>
+  document.getElementById('toggleDayNight').addEventListener('click', function() {
+      const backyard = document.getElementById('backyard');
+      if (backyard.style.backgroundColor === 'rgb(116, 185, 255)') {
+          backyard.style.backgroundColor = '#343a40'; /* Nighttime color */
+      } else {
+          backyard.style.backgroundColor = '#74b9ff'; /* Daytime color */
+      }
+  });
+
+</script>
+
+<script>
+  function toggleFire() {
+      var fire = document.getElementById('fire');
+      var smoke = document.getElementById('smoke');
+      if (fire.style.animationPlayState === 'running' || fire.style.animationPlayState === '') {
+          // Stop the burning fire animation and start the smoke
+          fire.style.animation = 'none'; // Stops the fire animation
+          fire.style.background = 'linear-gradient(black, black, black)'; // Change fire to burnt-out state
+          smoke.style.display = 'block'; // Show smoke
+          setTimeout(function() {
+              smoke.style.display = 'none'; // Hide smoke after animation
+              fire.style.display = 'none'; // Also hide the fire
+          }, 4000); // Corresponds to the smoke animation duration
+      } else {
+          fire.style.display = 'block';
+          fire.style.animation = 'burnFire 3s linear infinite'; // Restart the fire animation
+          smoke.style.display = 'none'; // Ensure smoke is hidden when fire is lit
+      }
+  }
+
+
+</script>
+
+<script>
+  // script.js
+function myFunction() {
+var x = document.getElementById("myTopnav");
+if (x.className === "topnav") {
+    x.className += " responsive";
+} else {
+    x.className = "topnav";
+}
+}
+</script>
+<script>
+  // script.js
+  document.getElementById('treatment-style').addEventListener('change', function() {
+      var treatment = document.getElementById('treatment');
+      var style = this.value;
+
+      switch(style) {
+          case 'curtains':
+              treatment.style.backgroundImage = 'linear-gradient(to bottom, #ffffff, #f1f1f1)';
+              treatment.style.height = "100%";
+              break;
+          case 'blinds':
+              treatment.style.backgroundImage = 'repeating-linear-gradient(to bottom, #ffffff 0%, #ffffff 80%, #c1c1c1 80%, #c1c1c1 100%)';
+              treatment.style.height = "100%";
+              break;
+          case 'drapes':
+              treatment.style.backgroundImage = 'radial-gradient(circle, #ffffff, #e7e7e7)';
+              treatment.style.height = "100%";
+              break;
+          default:
+              treatment.style.background = 'none';
+      }
+  });
+
+  document.getElementById('color-picker').addEventListener('change', function() {
+      var treatment = document.getElementById('treatment');
+      if (document.getElementById('treatment-style').value) { // Only change color if a style is selected
+          treatment.style.backgroundColor = this.value;
+          treatment.style.backgroundBlendMode = 'multiply'; // Blend color with the pattern
+      }
+  });
+
+</script>
+<script>
+  document.getElementById('lamp').addEventListener('click', function() {
+      var lampShade = document.getElementById('lamp-shade');
+      // Toggle the lamp by checking the box-shadow style
+      if (lampShade.style.boxShadow.includes('rgba')) {
+          lampShade.style.boxShadow = 'none'; // Lamp off
+      } else {
+          lampShade.style.boxShadow = '0 -20px 20px rgba(255, 255, 255, 0.5)'; // Lamp on
+      }
+  });
+
+  document.getElementById('tv').addEventListener('click', function() {
+      var tvScreen = document.getElementById('tv-screen');
+      // Simulate changing TV channels by cycling through background colors
+      const colors = ['#000', '#444', '#888']; // Different 'channels'
+      const currentColor = tvScreen.style.backgroundColor || '#000'; // Default or current color
+      let nextColorIndex = (colors.indexOf(currentColor) + 1) % colors.length;
+      tvScreen.style.backgroundColor = colors[nextColorIndex];
+  });
+
+</script>
+
+<script>
+  function showBookInfo(title, summary) {
+    const infoDiv = document.getElementById('book-info');
+    infoDiv.innerHTML = `<h3>${title}</h3><p>${summary}</p>`;
+}
+</script>
+<script>
+  function waterPlant() {
+    const plant = document.getElementById('plant');
+    let currentHeight = parseInt(plant.style.height, 10);
+    if (currentHeight < 100) { // Limit growth to avoid overflow
+        plant.style.height = `${currentHeight + 10}px`; // Grow by 10px
+    }
+}
+</script>
+<script>
+  document.getElementById('time-of-day').addEventListener('input', function() {
+           const hour = this.value;
+           const background = hour >= 20 || hour <= 5 ? 'linear-gradient(to bottom, #000044, #222222)' :
+                             hour <= 8 ? 'linear-gradient(to bottom, #FFD700, #87CEEB)' :
+                             'linear-gradient(to bottom, #87CEEB, #f4f4f4)';
+           document.getElementById('living-room').style.background = background;
+       });
+       </script>
+</body>
