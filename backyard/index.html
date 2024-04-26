@@ -214,17 +214,23 @@ body::-webkit-scrollbar-thumb {
     background-color: #A9DFBF; /* A soft green to fit the backyard theme */
     border-radius: 6px;
 }
-
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
+    font-family: Arial, sans-serif;
+    color: white; /* Default text color */
 }
 
 #colorBox {
     width: 100%;
-    transition: background-color 0.5s;
+    transition: background-color 0.5s, color 0.5s; /* Added color transition */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
 }
+
 
 
 
@@ -250,7 +256,7 @@ body, html {
 
 
      <div id="colorBox" style="height: 1500px;">Scroll to change background color</div>
-    
+
 
 <script>
   // script.js
@@ -275,14 +281,24 @@ if (x.className === "topnav") {
 document.addEventListener('scroll', function() {
     var scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
 
-    // Assuming you want to cycle through these four colors
-    var colors = ["#3498db", "#e74c3c", "#2ecc71", "#f39c12"];
+    // Background and text colors
+    var colors = [
+        {bg: "#3498db", text: "#ecf0f1"},
+        {bg: "#e74c3c", text: "#2c3e50"},
+        {bg: "#2ecc71", text: "#34495e"},
+        {bg: "#f39c12", text: "#2d3436"}
+    ];
+
     var colorIndex = Math.floor(scrollPercentage * colors.length);
 
     if (colorIndex >= colors.length) {
         colorIndex = colors.length - 1;
     }
 
-    document.getElementById('colorBox').style.backgroundColor = colors[colorIndex];
+    var color = colors[colorIndex];
+    var colorBox = document.getElementById('colorBox');
+    colorBox.style.backgroundColor = color.bg;
+    colorBox.style.color = color.text;
 });
+
 </script>
