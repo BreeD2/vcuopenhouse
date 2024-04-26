@@ -215,6 +215,18 @@ body::-webkit-scrollbar-thumb {
     border-radius: 6px;
 }
 
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#colorBox {
+    width: 100%;
+    transition: background-color 0.5s;
+}
+
+
 
 </style>
 
@@ -234,50 +246,11 @@ body::-webkit-scrollbar-thumb {
              <i class="fa fa-bars"></i>
          </a>
      </div>
-  <button id="toggleDayNight">Toggle Day/Night</button>
-<div id="backyard">
-  <div id="fire" onclick="toggleFire()"></div>
-    <div id="smoke" style="display: none;"></div> <!-- Initially hidden -->
-    <i class="scrollbar-icon fas fa-leaf"></i>
-
-</div>
 
 
 
-<script>
-  document.getElementById('toggleDayNight').addEventListener('click', function() {
-      const backyard = document.getElementById('backyard');
-      if (backyard.style.backgroundColor === 'rgb(116, 185, 255)') {
-          backyard.style.backgroundColor = '#343a40'; /* Nighttime color */
-      } else {
-          backyard.style.backgroundColor = '#74b9ff'; /* Daytime color */
-      }
-  });
-
-</script>
-
-<script>
-  function toggleFire() {
-      var fire = document.getElementById('fire');
-      var smoke = document.getElementById('smoke');
-      if (fire.style.animationPlayState === 'running' || fire.style.animationPlayState === '') {
-          // Stop the burning fire animation and start the smoke
-          fire.style.animation = 'none'; // Stops the fire animation
-          fire.style.background = 'linear-gradient(black, black, black)'; // Change fire to burnt-out state
-          smoke.style.display = 'block'; // Show smoke
-          setTimeout(function() {
-              smoke.style.display = 'none'; // Hide smoke after animation
-              fire.style.display = 'none'; // Also hide the fire
-          }, 4000); // Corresponds to the smoke animation duration
-      } else {
-          fire.style.display = 'block';
-          fire.style.animation = 'burnFire 3s linear infinite'; // Restart the fire animation
-          smoke.style.display = 'none'; // Ensure smoke is hidden when fire is lit
-      }
-  }
-
-
-</script>
+     <div id="colorBox" style="height: 1500px;">Scroll to change background color</div>
+    
 
 <script>
   // script.js
@@ -295,5 +268,21 @@ if (x.className === "topnav") {
     const icon = document.querySelector('.scrollbar-icon');
     // Example: Change icon color based on scroll position
     icon.style.color = window.scrollY > 500 ? '#58D68D' : 'green';
+});
+</script>
+
+<script>
+document.addEventListener('scroll', function() {
+    var scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+
+    // Assuming you want to cycle through these four colors
+    var colors = ["#3498db", "#e74c3c", "#2ecc71", "#f39c12"];
+    var colorIndex = Math.floor(scrollPercentage * colors.length);
+
+    if (colorIndex >= colors.length) {
+        colorIndex = colors.length - 1;
+    }
+
+    document.getElementById('colorBox').style.backgroundColor = colors[colorIndex];
 });
 </script>
